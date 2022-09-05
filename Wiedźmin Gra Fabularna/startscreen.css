@@ -1,0 +1,116 @@
+@font-face {
+    font-family: 'Witcher';
+    src: url(./assets/fonts/Thewitcher-jnOj.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Witcher', 'Almendra', serif;
+}
+
+body{
+    font-family: 'Witcher';
+    background-image: url(./assets/images/general/bg-image-startscreen.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: auto;
+    text-align: center;
+    position: relative;
+}
+
+body > * {
+    position: relative;
+    z-index: 2;
+}
+
+body::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.411);
+}
+
+h1{
+    padding-top: 130px;
+    font-size: 150px;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px red;
+}
+
+h2{
+    font-size: 55px;
+    color: #bd0303;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px black;
+}
+
+button{
+    font-family: 'Witcher';
+    font-size: 40px;
+    margin-top: 70px;
+    padding: 17px 90px;
+    border-radius: 35px;
+    border: 3px solid black;
+    cursor: pointer;
+    color: #fff;
+    animation: textglow 1s infinite alternate;
+    background: linear-gradient(90deg, rgba(0,0,0,0.9164040616246498) 39%, rgba(31,15,12,0.8911939775910365) 100%, rgba(166,49,6,0.9164040616246498) 100%);
+}
+
+button:hover{
+    -webkit-animation: textglow 1s ease-in-out infinite alternate;
+    -moz-animation: textglow 1s ease-in-out infinite alternate;
+    animation: textglow 1s ease-in-out infinite alternate,
+    textglow 1s infinite alternate;
+    font-size: 43px;
+}
+
+button:active{
+    background-color: #fff;
+    color: #000;
+    transition: 50ms ease-out;
+}
+
+@-webkit-keyframes textglow {
+    from {
+      box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0400e6, 0 0 40px #1700e6, 0 0 50px #1700e6, 0 0 60px #002ae6, 0 0 70px #1700e6;
+    }
+    to {
+      box-shadow: 0 0 20px #fff, 0 0 30px #4d50ff, 0 0 40px #5f4dff, 0 0 50px #5f4dff, 0 0 60px #594dff, 0 0 70px #684dff, 0 0 80px #594dff;
+    }
+
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #2300e6, 0 0 40px #1700e6, 0 0 50px #0004e6, 0 0 60px #1700e6, 0 0 70px #2300e6;
+      }
+      to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #4d50ff, 0 0 40px #5f4dff, 0 0 50px #5f4dff, 0 0 60px #594dff, 0 0 70px #684dff, 0 0 80px #594dff;
+      }
+  }
+
+  @media screen and (max-width: 500px) {
+
+    body{
+        height: 100vh;
+    }
+    h1{
+        font-size: 80px;
+        padding-top: 190px;
+        text-shadow: 1px 1px red;
+    }
+
+    h2{
+        font-size: 40px;
+    }
+
+    button{
+        margin-bottom: 120px;
+        padding: 10px 50px;
+    }
+  }

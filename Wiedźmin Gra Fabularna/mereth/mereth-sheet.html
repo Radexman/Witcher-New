@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./mereth-sheet.css">
+    <link rel="shortcut icon" href="../assets/images/general/character.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="./mereth-status-eq.js" async type="text/javascript"></script>
+    <script src="./atrb-rolls.js" async type="text/javascript"></script>
+    <script src="./kostur-atak.js" async> type="text/javascript"</script>
+    <script src="./caryshail-atak.js" async type="text/javascript"></script>
+    <script src="./cadfansgrasp-atak.js" async type="text/javascript"></script>
+    <title>Wiedźmin - Gra Fabularna</title>
+</head>
+<body>
+    <header>
+
+        <div class="avatar">
+            <img class="mereth" src="../assets/images/mereth/mereth-small-avatar.png" alt="Mereth's avatar">
+            <h1>Mereth</h1>
+            <h2>Czarodziej</h2>
+        </div>
+
+        <dialog id="roll-outcome-box">
+            <img src="../assets/images/general/d10.svg" alt="" srcset="">
+            <p>Wynik Rzutu:</p><p id="d10-roll"></p>
+            <p>Suma:</p><p id="sum"></p>
+            <p id="roll-outcome-box-close">Zamknij</p>
+        </dialog>
+
+        <div class="stats">
+
+            <div class="single-stat">
+
+                <i class="bi bi-heart-fill icons">
+                <p><p class="text">40</p>/40</p>
+                <input class="storage" type="number" min="0" max="10000">
+                <button class="button">Zmień</button>
+                </i>
+
+            </div>
+
+            <div class="single-stat">
+                <i class="bi bi-lightning-charge-fill icons icon2">
+                    <p class="textv">40<p>/40</p></p>
+                    <input class="storagev" type="number" min="0" max="10000">
+                    <button class="buttonv">Zmień</button>
+                    <audio src="../assets/audio/vigor.mp3" id="vigor-audio"></audio>
+                </i>
+            </div>
+
+            <div class="single-stat">
+                <i class="bi bi-c-circle-fill icons icon3">
+                    <p class="textm">300</p>
+                    <input class="storagem" type="number" min="0" max="10000">
+                    <button class="buttonm">Zmień</button>
+                    <audio src="../assets/audio/money.mp3" id="money-audio"></audio>
+                </i>
+            </div>
+
+        </div>
+
+        <div class="arrr-skill-arm-box">
+
+            <div class="attr">
+
+                <div class="single-attr" id="int-artb">
+                    <p>Int.<br/><p id="int"></p></p>
+                </div>
+
+                <div class="single-attr" id="ref-artb">
+                    <p>Ref.<br/><p id="ref"></p></p>
+                </div>
+
+                <div class="single-attr" id="zr-artb">
+                    <p>Zr.<br/><p id="zr"></p></p>
+                </div>
+                
+                <div class="single-attr" id="cia-artb">
+                    <p>Cia.<br/><p id="cia"></p></p>
+                </div>
+
+                <div class="single-attr" id="szy-artb">
+                    <p>Szy.<br/><p id="szy"></p></p>
+                </div>
+
+                <div class="single-attr" id="emp-artb">
+                    <p>Emp.<br/><p id="emp"></p></p>
+                </div>
+
+                <div class="single-attr" id="rze-artb">
+                    <p>Rze.<br/><p id="rze"></p></p>
+                </div>
+
+                <div class="single-attr" id="wol-artb">
+                    <p>Wol.<br/><p id="wol"></p></p>>
+                </div>
+
+                <div class="single-attr" id="szcz-artb">
+                    <p>Sz.<br/><p id="sz"></p></p>
+                </div>
+
+            </div>
+
+                <div class="upgrade-armour-box">
+                    <div class="upgrade">
+                        <p>Punkty:</p><p class="textp">0</p>
+                        <input class="storagep" type="number" min="0" max="10">
+                        <button class="buttonp">Dodaj</button>
+                        <audio src="../assets/audio/level-up.mp3" id="level-up-audio"></audio>
+                    </div>
+                    <div class="armour">
+
+                        <div class="head">
+                           <p>Pancerz czerep:</p><p class="textg">0</p>
+                            <input class="storageg" type="number" min="0" max="50">
+                            <button class="buttong">Zmień</button>
+                            <audio src="../assets/audio/armour.mp3" id="armour-audio"></audio>
+                        </div>
+
+                        <div class="torso">
+                            <p>Pancerz tors:</p><p class="textt">0</p>
+                            <input class="storaget" type="number" min="0" max="50">
+                            <button class="buttont">Zmień</button>
+                        </div>
+
+                        <div class="legs">
+                            <p>Pancerz nogi:</p><p class="textn">0</p>
+                            <input class="storagen" type="number" min="0" max="50">
+                            <button class="buttonn">Zmień</button>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+    </header>
+
+    <main>
+
+        <div id="main-class">
+
+            <h2>Bohater</h2>
+            <div class="main-skill">
+                <h3>Szkolenie Magiczne: <p class="mgc-tr"></p></h3>
+                <p class="small-text">
+                    By być uznanym za czarodzieja, adept musi wpierw przejść przez korytarze jednej z akademii magii
+                    i nauczyć się podstaw tej tajemnej sztuki. Czarodziej może wykorzystać 
+                    <strong>Szkolenie Magiczne</strong> kiedy spotykaja fenomen natury magicznej, nieznane zaklęcie lub sytuację
+                    wymagającej magicznej ekspertyzy. <strong>Poziom Trudności</strong> rzutu jest wyznaczany przez <strong>Mistrza Gry</strong>, sukces pozwala 
+                    czarodziejowi na poznanie wszystkich tajemnic badanego zjawiska. Szkolenie Magiczne może również być
+                    wykorzystane jako rzut na świadomość, która wykrywa magię lub zjawy.
+                </p>
+
+                <p class="roll-btn">Rzuć</p>
+                <audio src="../assets/audio/dice-roll.mp3" class="dice-roll-audio"></audio>
+
+                <h3>Artysta</h3>
+                <p class="small-text">
+                    Elfy posiadają głębokie postrzeganie piękna oraz mają talent artystyczny. Jak elf zyskujesz +1 do <strong>Sztuki</strong>.
+                </p>
+
+                <br/><br/>
+
+                <h3>Strzelec Wyborowy</h3>
+                <p class="small-text">
+                    Lata tradycji i praktyki czynią z elfów jednych z najlepszych łuczników na Kontynencie. Jako elf zyskujesz +2 do <strong>Łucznictwa</strong>
+                    oraz możesz wyciągnąć łuk i go napiąć bez wykorzystywania <strong>Akcji</strong>.
+                </p>
+
+                <br/><br/>
+
+                <h3>Dostrojenie z Naturą</h3>
+                <p class="small-text">
+                    Elfy posiadają głęboką więź z przyrodą. Nie niepokoją zwierząt przez co same nie będą agresywne chyba, że zostaną do tego sprowokowane.
+                    Elfy potrafią szybko znaleźć powszechnie występującą roślinę której szukają jeśli dana roślina rośnie w pobliżu.
+                </p>
+            </div>
+        </div>
+
+        <div id="character-skills">
+            <h2>Skille</h2>
+
+            <br/>
+
+            <div class="single-skill skill-start" id="alch-skill">
+
+            <div class="statvalue"><h3 class="skill-heading">Alchemia:<h2 id="alch"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="czuj-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Czujność:<h2 id="czuj"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="ded-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Dedukcja:<h2 id="ded"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="klon-skill">
+                
+                <div class="statvalue"><h3 class="skill-heading">Klątwa:<h2 id="klon"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="koswl-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Kostór/Włócznia:<h2 id="koswl"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="lucz-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Łucznictwo:<h2 id="lucz"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="magodp-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Magiczna Odporność:<h2 id="magodp"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="ment-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Mentorstwo:<h2 id="ment"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="ryt-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Rytuały:<h2 id="ryt"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="rzucza-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Rzucanie Czarów:<h2 id="rzucza"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="savvive-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Savoir Vivre:<h2 id="savvive"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="styl-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Styl:<h2 id="styl"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="sztu-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Sztuka:<h2 id="sztu"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="sciem-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Ściema:<h2 id="sciem"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="takty-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Taktyka:<h2 id="takty"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+            
+            <div class="single-skill" id="uwo-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Uwodzenie:<h2 id="uwo"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="wyksz-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Wykształcenie:<h2 id="wyksz"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="zroemo-skill">
+                
+                <div class="statvalue"><h3 class="skill-heading">Zrozumienie Emocji:<h2 id="zroemo"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="unik-skill">
+                
+                <div class="statvalue"><h3 class="skill-heading">Unik:<h2 id="unik"></h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="character-actions">
+            <h2>Akcje</h2>
+            <br/>
+            <div class="stat-derv">
+                <span>Ogłuszenie: 80</span>
+                <span>Bieg: 15m</span>
+                <span>Skok: 3m</span>
+                <span>Udźwig: 60kg</span>
+                <span>Regeneracja: 8</span>
+                <span>Wigor: 5</span>
+            </div>
+
+            <div class="kostur">
+
+                <div class="weapon-description">
+                    <h3>Kostur</h3>
+                    <p class="small-text">Skupienie: 1</p>
+                </div>
+
+                <div class="weapon-window">
+                    <div class="weapon-img"></div>
+                    <button id="roll-kostur">Rzuć</button>
+                </div>
+
+                <div class="weapon-attack-outcomes">
+                    <div class="roll-outcome-kostur"></div>
+                    <div class="outcome-kostur"></div>
+                    <div class="dmg-kostur"></div>
+                    <div class="bdy-part-kostur"></div>
+                </div>
+            </div>
+
+            <div class="caryshail">
+
+                <div class="weapon-description">
+                    <h3>Nawałnica Carysa</h3>
+                    <p class="small-text">Wytrzymałość: -3. Zasięg: 5m</p>
+                </div>
+
+                <div class="weapon-window">
+                    <div class="weapon-img-caryshail"></div>
+                    <button id="roll-caryshail">Rzuć</button>
+                </div>
+
+                <div class="weapon-attack-outcomes">
+                    <div class="roll-outcome-caryshail"></div>
+                    <div class="outcome-caryshail"></div>
+                    <div class="dmg-caryshail"></div>
+                    <div class="bdy-part-caryshail"></div>
+                    <div class="freeze-chance"></div>
+                </div>
+            </div>
+
+            <div class="catfangrasp">
+
+                <div class="weapon-description">
+                    <h3>Pochwycenie Cadfana</h3>
+                    <p class="small-text">Wytrzymałość: -4. Zasięg: 8m</p>
+                </div>
+
+                <div class="weapon-window">
+                    <div class="weapon-img-catfangrasp"></div>
+                    <button id="roll-catfangrasp">Rzuć</button>
+                </div>
+
+                <div class="weapon-attack-outcomes">
+                    <div class="dmg-catfangrasp"></div>
+                    <div class="ignite-chance"></div>
+                    <div class="turn-duration"></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>

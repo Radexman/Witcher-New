@@ -1,0 +1,302 @@
+@font-face {
+    font-family: 'Witcher';
+    src: url(../assets/fonts/Thewitcher-jnOj.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Witcher', 'Almendra', serif;
+}
+
+body{
+    background-image: url(../assets/images/mereth/merettbg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    width: auto;
+    height: 100vh;
+    padding-top: 200px;
+}
+
+body > * {
+    position: relative;
+    z-index: 2;
+}
+
+a{
+  text-decoration: none;
+}
+
+body::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 19, 145, .4);
+}
+
+.options{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.character{
+    background-image: url(../assets/images/general/character.png);
+    background-repeat: no-repeat;
+    width: 139px;
+    height: 139px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 50px;
+    text-shadow: 3px 3px black;
+    cursor: pointer;
+    -webkit-animation: heroglow 1s ease-in-out infinite alternate;
+    -moz-animation: heroglow 1s ease-in-out infinite alternate;
+    animation: heroglow 1s ease-in-out infinite alternate;
+    z-index: 4;
+}
+
+.character:hover{
+    -webkit-animation: heroglow 1s ease-in-out infinite alternate, herotextglow 1s ease-in-out infinite alternate;
+    -moz-animation: heroglow 1s ease-in-out infinite alternate, herotextglow 1s ease-in-out infinite alternate;
+    animation: heroglow 1s ease-in-out infinite alternate, herotextglow 1s ease-in-out infinite alternate;
+    z-index: 4;
+    color: #000;
+    text-shadow: 3px 3px #fff;
+    transition: 500ms ease-in-out;
+}
+
+.items{
+    background-image: url(../assets/images/general/items.png);
+    background-repeat: no-repeat;
+    width: 139px;
+    height: 139px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 50px;
+    text-shadow: 3px 3px black;
+    cursor: pointer;
+    -webkit-animation: itemsglow 1s ease-in-out infinite alternate;
+    -moz-animation: itemsglow 1s ease-in-out infinite alternate;
+    animation: itemsglow 1s ease-in-out infinite alternate;
+    z-index: 4;
+}
+
+.items:hover{
+    -webkit-animation: itemsglow 1s ease-in-out infinite alternate, itemstextglow 1s ease-in-out infinite alternate;
+    -moz-animation: itemsglow 1s ease-in-out infinite alternate, itemstextglow 1s ease-in-out infinite alternate;
+    animation: itemsglow 1s ease-in-out infinite alternate, itemstextglow 1s ease-in-out infinite alternate;
+    z-index: 4;
+    color: #000;
+    text-shadow: 3px 3px #fff;
+    transition: 500ms ease-in-out;
+}
+
+.magic{
+    background-image: url(../assets/images/general/magic.png);
+    background-repeat: no-repeat;
+    width: 139px;
+    height: 139px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 50px;
+    text-shadow: 3px 3px black;
+    cursor: pointer;
+    -webkit-animation: magicglow 1s ease-in-out infinite alternate;
+    -moz-animation: magicglow 1s ease-in-out infinite alternate;
+    animation: magicglow 1s ease-in-out infinite alternate;
+    z-index: 4;
+}
+
+.magic:hover{
+    -webkit-animation: magicglow 1s ease-in-out infinite alternate, magictextglow 1s ease-in-out infinite alternate;
+    -moz-animation: magicglow 1s ease-in-out infinite alternate, magictextglow 1s ease-in-out infinite alternate;
+    animation: magicglow 1s ease-in-out infinite alternate, magictextglow 1s ease-in-out infinite alternate;
+    z-index: 4;
+    color: #000;
+    text-shadow: 3px 3px #fff;
+    transition: 500ms ease-in-out;
+}
+
+.skills{
+    background-image: url(../assets/images/general/alchemy.png);
+    background-repeat: no-repeat;
+    width: 139px;
+    height: 139px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 50px;
+    text-shadow: 3px 3px black; 
+    cursor: pointer;
+    -webkit-animation: skillsglow 1s ease-in-out infinite alternate;
+    -moz-animation: skillsglow 1s ease-in-out infinite alternate;
+    animation: skillsglow 1s ease-in-out infinite alternate;
+    z-index: 4;
+}
+
+.skills:hover{
+    -webkit-animation: skillsglow 1s ease-in-out infinite alternate, skillstextglow 1s ease-in-out infinite alternate;
+    -moz-animation: skillsglow 1s ease-in-out infinite alternate, skillstextglow 1s ease-in-out infinite alternate;
+    animation: skillsglow 1s ease-in-out infinite alternate, skillstextglow 1s ease-in-out infinite alternate;
+    z-index: 4;
+    color: #000;
+    text-shadow: 3px 3px #fff;
+    transition: 500ms ease-in-out; 
+}
+
+.journal{
+    background-image: url(../assets/images/general/journal.png);
+    background-repeat: no-repeat;
+    width: 139px;
+    height: 139px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 50px;
+    text-shadow: 3px 3px black; 
+    cursor: pointer;
+    -webkit-animation: journalglow 1s ease-in-out infinite alternate;
+    -moz-animation: journalglow 1s ease-in-out infinite alternate;
+    animation: journalglow 1s ease-in-out infinite alternate;
+    z-index: 4;
+}
+
+.journal:hover{
+    -webkit-animation: journalglow 1s ease-in-out infinite alternate, journaltextglow 1s ease-in-out infinite alternate;
+    -moz-animation: journalglow 1s ease-in-out infinite alternate, journaltextglow 1s ease-in-out infinite alternate;
+    animation: journalglow 1s ease-in-out infinite alternate, journaltextglow 1s ease-in-out infinite alternate;
+    z-index: 4;
+    color: #000;
+    text-shadow: 3px 3px #fff;
+    transition: 500ms ease-in-out; 
+}
+
+/* ======================================== Hero Animations ================================== */
+
+@-webkit-keyframes heroglow {
+    from {
+      box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #00cc1bbe, 0 0 20px #00e90c, 0 0 25px #0cc706, 0 0 30px #1be400, 0 0 35px #159c03;
+    }
+    to {
+      box-shadow: 0 0 10px #fff, 0 0 15px #177400, 0 0 20px #156e03, 0 0 25px #0f5501, 0 0 30px #176b02, 0 0 35px #167902, 0 0 40px #2e7902;
+    }
+  }
+
+@-webkit-keyframes herotextglow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #46a705, 0 0 20px #56b806, 0 0 25px #3bc504, 0 0 30px #4ece03, 0 0 35px #388a02;
+      }
+      to {
+        text-shadow: 0 0 10px #fff, 0 0 15px #30c204, 0 0 20px #32d301, 0 0 25px #268102, 0 0 30px #35a003, 0 0 35px rgb(51, 153, 3), 0 0 40px #319104;
+      }
+}
+
+/* ======================================== Items Animations ================================== */
+
+
+@-webkit-keyframes itemsglow {
+    from {
+      box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #cc5c00be, 0 0 20px #e97c00, 0 0 25px #c76d06, 0 0 30px #e4a700, 0 0 35px #9c6603;
+    }
+    to {
+      box-shadow: 0 0 10px #fff, 0 0 15px #744b00, 0 0 20px #6e5503, 0 0 25px #553301, 0 0 30px #6b4602, 0 0 35px #796d02, 0 0 40px #795902;
+    }
+  }
+
+@-webkit-keyframes itemstextglow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #a77c05, 0 0 20px #b87a06, 0 0 25px #c58204, 0 0 30px #ce8e03, 0 0 35px #8a6a02;
+      }
+      to {
+        text-shadow: 0 0 10px #fff, 0 0 15px #c28604, 0 0 20px #d39001, 0 0 25px #816a02, 0 0 30px #a06103, 0 0 35px rgb(153, 113, 3), 0 0 40px rgb(145, 131, 4)4;
+      }
+}
+
+/* ======================================== Magic Animations ================================== */
+
+@-webkit-keyframes magicglow {
+    from {
+      box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0025ccbe, 0 0 20px #0004e9, 0 0 25px #1306c7, 0 0 30px #0f00e4, 0 0 35px #03069c;
+    }
+    to {
+      box-shadow: 0 0 10px #fff, 0 0 15px #001574, 0 0 20px #030a6e, 0 0 25px #020155, 0 0 30px #020d6b, 0 0 35px #020e79, 0 0 40px #020e79;
+    }
+  }
+
+@-webkit-keyframes magictextglow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0523a7, 0 0 20px #0609b8, 0 0 25px #0421c5, 0 0 30px #0317ce, 0 0 35px #021b8a;
+      }
+      to {
+        text-shadow: 0 0 10px #fff, 0 0 15px #1704c2, 0 0 20px #2101d3, 0 0 25px #0b0281, 0 0 30px #0603a0, 0 0 35px rgb(3, 18, 153), 0 0 40px rgb(30, 4, 145)4;
+      }
+}
+
+/* ======================================== Skills Animations ================================== */
+
+
+@-webkit-keyframes skillsglow {
+    from {
+      box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #cc0000, 0 0 20px #e90000, 0 0 25px #c70606, 0 0 30px #e40000, 0 0 35px #9c0303;
+    }
+    to {
+      box-shadow: 0 0 10px #fff, 0 0 15px #740000, 0 0 20px #6e0303, 0 0 25px #550101, 0 0 30px #6b0202, 0 0 35px #790202, 0 0 40px #790202;
+    }
+  }
+
+@-webkit-keyframes skillstextglow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #a70505, 0 0 20px #b80606, 0 0 25px #c50404, 0 0 30px #ce0303, 0 0 35px #8a0202;
+      }
+      to {
+        text-shadow: 0 0 10px #fff, 0 0 15px #c20404, 0 0 20px #d30101, 0 0 25px #810202, 0 0 30px #a00303, 0 0 35px rgb(153, 3, 3), 0 0 40px rgb(145, 4, 4)4;
+      }
+}
+
+/* ======================================== Journal Animations ================================== */
+
+@-webkit-keyframes journalglow {
+    from {
+      box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #00cc8f, 0 0 20px #00e9af, 0 0 25px #06c797, 0 0 30px #00e4ab, 0 0 35px #039c61;
+    }
+    to {
+      box-shadow: 0 0 10px #fff, 0 0 15px #007451, 0 0 20px #036e4e, 0 0 25px #01553c, 0 0 30px #026b3f, 0 0 35px #02795b, 0 0 40px #02795f;
+    }
+  }
+
+@-webkit-keyframes journaltextglow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #05a764, 0 0 20px #06b87d, 0 0 25px #04c5a5, 0 0 30px #03ce9b, 0 0 35px #028a68;
+      }
+      to {
+        text-shadow: 0 0 10px #fff, 0 0 15px #04c269, 0 0 20px #01d382, 0 0 25px #028166, 0 0 30px #03a06c, 0 0 35px rgb(3, 153, 103), 0 0 40prgb(4, 145, 86)4)4;
+      }
+}
+
+  @media screen and (max-width: 500px) {
+
+    body{
+        height: 180vh;
+    }
+
+    .options{
+        gap: 35px;
+        flex-direction: column;
+    }
+  }

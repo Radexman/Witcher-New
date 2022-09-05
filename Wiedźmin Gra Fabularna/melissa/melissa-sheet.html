@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./melissa-sheet.css">
+    <link rel="shortcut icon" href="../assets/images/general/character.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="./melissa-status-eq.js" async type="text/javascript"></script>
+    <script src="./atrb-rolls.js" async type="text/javascript"></script>
+    <script src="./sztylet-atak.js" async type="text/javascript"></script>
+    <title>Wiedźmin - Gra Fabularna</title>
+</head>
+<body>
+    <header>
+
+        <div class="avatar">
+            <img class="mereth" src="../assets/images/melissa/melissa-small-avatar.png" alt="Selina's avatar">
+            <h1>Selina</h1>
+            <h2>Doktor</h2>
+        </div>
+
+        <dialog id="roll-outcome-box">
+            <img src="../assets/images/general/d10.svg" alt="" srcset="">
+            <p>Wynik Rzutu:</p><p id="d10-roll"></p>
+            <p>Suma:</p><p id="sum"></p>
+            <p id="roll-outcome-box-close">Zamknij</p>
+        </dialog>
+
+        <div class="stats">
+
+            <div class="single-stat">
+
+                <i class="bi bi-heart-fill icons">
+                <p><p class="textseh">25</p>/25</p>
+                <input class="storageseh" type="number" min="0" max="10000">
+                <button class="buttonseh">Zmień</button>
+                </i>
+
+            </div>
+
+            <div class="single-stat">
+                <i class="bi bi-lightning-charge-fill icons icon2">
+                    <p class="textsev">25<p>/25</p></p>
+                    <input class="storagesev" type="number" min="0" max="10000">
+                    <button class="buttonsev">Zmień</button>
+                    <audio src="../assets/audio/vigor.mp3" id="vigor-audio"></audio>
+                </i>
+            </div>
+
+            <div class="single-stat">
+                <i class="bi bi-c-circle-fill icons icon3">
+                    <p class="textsem">300</p>
+                    <input class="storagesem" type="number" min="0" max="10000">
+                    <button class="buttonsem">Zmień</button>
+                    <audio src="../assets/audio/money.mp3" id="money-audio"></audio>
+                </i>
+            </div>
+
+        </div>
+
+        <div class="arrr-skill-arm-box">
+
+            <div class="attr">
+
+                <div class="single-attr" id="int-artb">
+                    <p>Int.<br/><p id="int"></p></p>
+                </div>
+
+                <div class="single-attr" id="ref-artb">
+                    <p>Ref.<br/><p id="ref"></p></p>
+                </div>
+
+                <div class="single-attr" id="zr-artb">
+                    <p>Zr.<br/><p id="zr"></p></p>
+                </div>
+                
+                <div class="single-attr" id="cia-artb">
+                    <p>Cia.<br/><p id="cia"></p></p>
+                </div>
+
+                <div class="single-attr" id="szy-artb">
+                    <p>Szy.<br/><p id="szy"></p></p>
+                </div>
+
+                <div class="single-attr" id="emp-artb">
+                    <p>Emp.<br/><p id="emp"></p></p>
+                </div>
+
+                <div class="single-attr" id="rze-artb">
+                    <p>Rze.<br/><p id="rze"></p></p>
+                </div>
+
+                <div class="single-attr" id="wol-artb">
+                    <p>Wol.<br/><p id="wol"></p></p>
+                </div>
+
+                <div class="single-attr" id="szcz-artb">
+                    <p>Sz.<br/><p id="sz"></p></p>
+                </div>
+
+            </div>
+
+                <div class="upgrade-armour-box">
+                    <div class="upgradesep">
+                        <p>Punkty:</p><p class="textsep">0</p>
+                        <input class="storagesep" type="number" min="0" max="10">
+                        <button class="buttonsep">Dodaj</button>
+                        <audio src="../assets/audio/level-up.mp3" id="level-up-audio"></audio>
+                    </div>
+                    <div class="armour">
+
+                        <div class="head">
+                           <p>Pancerz czerep:</p><p class="textseg">0</p>
+                            <input class="storageseg" type="number" min="0" max="50">
+                            <button class="buttonseg">Zmień</button>
+                            <audio src="../assets/audio/armour.mp3" id="armour-audio"></audio>
+                        </div>
+
+                        <div class="torso">
+                            <p>Pancerz tors:</p><p class="textset">0</p>
+                            <input class="storageset" type="number" min="0" max="50">
+                            <button class="buttonset">Zmień</button>
+                        </div>
+
+                        <div class="legs">
+                            <p>Pancerz nogi:</p><p class="textsen">0</p>
+                            <input class="storagesen" type="number" min="0" max="50">
+                            <button class="buttonsen">Zmień</button>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+    </header>
+
+    <main>
+
+        <div id="main-class">
+
+            <h2>Bohater</h2>
+            <div class="main-skill">
+                <h3>Leczące Ręce: <p class="wi-tr"></p></h3>
+                <p class="small-text">
+                    Każdy może nałożyć leczniczą maść lub zawiązać bandaż jednak tylko doktor z prawdziwym
+                    doświadczeniem jest w stanie przeprowadzić skomplikowaną operację. Lekarz z umiejętnością
+                    <strong>Leczących Rąk</strong> jest w stanie wyleczyć krytyczne rany. By uleczyć ranę krytyczną doktor musi
+                    wykonać rzuty na <strong>Leczące Ręce</strong> w zależności od powagi rany. Poziom trudności jest zależny
+                    od stopnia powagi rany. <strong>Leczące Ręce</strong> mogą być wykorzystane zamiast rzutu na <strong>Pierwszą Pomoc</strong>.
+
+                </p>
+
+                <p class="roll-btn">Rzuć</p>
+                <audio src="../assets/audio/dice-roll.mp3" class="dice-roll-audio"></audio>
+
+                <br/>
+
+                <h3>Godna Zaufania</h3>
+                <p class="small-text">
+                    W świecie w którym nie można ufać nie-ludziom, ludzie wyglądają na bardziej godnych zaufania.
+                    Jako człowiek zyskujesz +1 do <strong>Charyzmy</strong>, <strong>Uwodzenia</strong> i <strong>Przekonywania</strong> w relacjach z innymi ludźmi.
+                </p>
+
+                <br/><br/>
+
+                <h3>Przebiegłość</h3>
+                <p class="small-text">
+                    Ludzie są bystrzy i często wpadają na błyskotliwe pomysły na trapiące ich problemy.
+                    Jako człowiek zyskujesz +1 do <strong>Dedukcji</strong>.
+                </p>
+
+                <br/><br/>
+
+                <h3>Uparta Jak Osioł</h3>
+                <p class="small-text">
+                    Jedną z silnych stron ludzi jest ich wola do parcia naprzód nie ważne co się dzieje,
+                    nawet w sytuacjach zagrożenia życia. Jako człowiek możesz przywołać swoją odwagę i
+                    przerzucić porażkę na <strong>Zimną Krew</strong> lub <strong>Odwagę</strong> 3 razy na sesję. Wybierasz wyższy rzut
+                    jeśli jednak drugi rzut też jest porażką nie możesz przerzucić kolejny raz.
+                </p>
+
+            </div>
+        </div>
+
+        <div id="character-skills">
+            <h2>Skille</h2>
+
+            <br/>
+
+            <div class="single-skill skill-start" id="alchse-skill">
+
+            <div class="statvalue"><h3 class="skill-heading">Alchemia:<h2 id="alchse">6</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="charse-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Charysma:<h2 id="charse">1</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="dedse-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Dedukcja:<h2 id="dedse">1</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="jezse-skill">
+                
+                <div class="statvalue"><h3 class="skill-heading">Jeździectwo:<h2 id="jezse">1</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="leprese-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Lepkie Ręce:<h2 id="leprese">5</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="malosse-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Małe Ostrza:<h2 id="malosse">5</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="odwase-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Odwaga:<h2 id="odwase">1</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="pierpose-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Pierwsza Pomoc:<h2 id="pierpose">1</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="przedse-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Przedsiębiorczość:<h2 id="przedse">1</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="przekose-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Przekonywanie:<h2 id="przekose">2</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="przese-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Przetrwanie:<h2 id="przese">2</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="unikse-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Unik:<h2 id="unikse">0</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="savivese-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Savoir Vivre:<h2 id="savivese">1</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="wykszse-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Wykształcenie:<h2 id="wykszse">5</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="zimkrese-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Zimna Krew:<h2 id="zimkrese">1</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="zroemose-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Zrozumienie Emocji:<h2 id="zroemose">1</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="jezwspse-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Język Wspólny:<h2 id="jezwspse">1</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="mowstase-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Mowa Starsza:<h2 id="mowstase">1</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+            <div class="single-skill" id="jezkrase-skill">
+
+                <div class="statvalue"><h3 class="skill-heading">Język Krasnoludzki:<h2 id="jezkrase">1</h2></h3></div>
+                <div class="skill-roll-btn">
+                    <p class="skill-roll-btn-text">Rzuć</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="character-actions">
+            <h2>Akcje</h2>
+            <br/>
+            <div class="stat-derv">
+                <span>Ogłuszenie: 50</span>
+                <span>Bieg: 15m</span>
+                <span>Skok: 2m</span>
+                <span>Udźwig: 50kg</span>
+                <span>Regeneracja: 5</span>
+            </div>
+
+            <div class="sztylet">
+
+                <div class="weapon-description">
+                    <h3>Sztylet</h3>
+                </div>
+
+                <div class="weapon-window">
+                    <div class="weapon-img"></div>
+                    <button id="roll-sztylet">Rzuć</button>
+                </div>
+    
+                <div class="weapon-attack-outcomes">
+                    <div class="roll-outcome-sztylet"></div>
+                    <div class="outcome-sztylet"></div>
+                    <div class="dmg-sztylet"></div>
+                    <div class="bdy-part-sztylet"></div>
+                </div>
+        </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

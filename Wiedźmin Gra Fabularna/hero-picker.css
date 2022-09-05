@@ -1,0 +1,333 @@
+@font-face {
+    font-family: 'Witcher';
+    src: url(./assets/fonts/Thewitcher-jnOj.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Witcher', 'Almendra', serif;
+}
+
+body{
+    font-family: 'Witcher';
+    background-color: #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 100vh;
+    padding: 10px;
+}
+
+#card3 img{
+    margin-top: 35px;
+}
+
+.avatar{
+    width: 300px;
+}
+
+a{
+    text-decoration: none;
+}
+
+h2{
+    color: #fff;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+p{
+    font-family: 'Almendra', serif;
+    font-size: 26px;
+    padding: 30px 20px;
+    color: #fff;
+}
+
+.card{
+    width: 30%;
+    text-align: center;
+    position: relative;
+    border-radius: 35px;
+}
+
+button{
+    height: 97vh;
+    border-radius: 20px;
+    margin-right: 10px;
+    padding: 4px 10px;
+    background-color: #000;
+    color: red;
+    border: 2px solid red;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: #000;
+    color: blue;
+    border: 2px solid red;
+    transition: 250ms ease-out;
+}
+
+.bi{
+    font-size: 50px;
+}
+
+.card > * {
+    position: relative;
+    z-index: 2;
+}
+
+.card::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.562);
+    border-radius: 35px;
+}
+
+#card1{
+    background: url(./assets/images/mereth/merettbg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    border: 2px solid blue;
+    -webkit-animation: glowmereth 1s ease-in-out infinite alternate;
+    -moz-animation: glowmereth 1s ease-in-out infinite alternate;
+    animation: glowmereth 1s ease-in-out infinite alternate;
+    z-index: 4;
+    cursor: pointer;
+}
+
+#card1:hover{
+    -webkit-animation: glowmereth 1s ease-in-out infinite alternate, glowtextmeret 1s ease-in-out infinite alternate;
+    -moz-animation: glowmereth 1s ease-in-out infinite alternate, glowtextmeret 1s ease-in-out infinite alternate;
+    animation: glowmereth 1s ease-in-out infinite alternate, glowtextmeret 1s ease-in-out infinite alternate;
+    z-index: 4;
+}
+
+#card2{
+    background: url(./assets/images/gniewoslaw/gniewoslaw-body-bg.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    cursor: pointer;
+    border: 2px solid red;
+    -webkit-animation: glowgniewoslav 1s ease-in-out infinite alternate;
+    -moz-animation: glowgniewoslav 1s ease-in-out infinite alternate;
+    animation: glowgniewoslav 1s ease-in-out infinite alternate;
+    z-index: 4;
+}
+
+#card2:hover{
+    -webkit-animation: glowgniewoslav 1s ease-in-out infinite alternate, glowtextgnievoslav 1s ease-in-out infinite alternate;
+    -moz-animation: glowgniewoslav 1s ease-in-out infinite alternate, glowtextgnievoslav 1s ease-in-out infinite alternate;
+    animation: glowgniewoslav 1s ease-in-out infinite alternate, glowtextgnievoslav 1s ease-in-out infinite alternate;
+    z-index: 4;
+}
+
+#card3{
+    background: url(./assets/images/melissa/melissabg.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    cursor: pointer;
+    border: 2px solid green;
+    -webkit-animation: glowmelissa 1s ease-in-out infinite alternate;
+    -moz-animation: glowmelissa 1s ease-in-out infinite alternate;
+    animation: glowmelissa 1s ease-in-out infinite alternate;
+    z-index: 4;
+}
+
+#card3:hover{
+    -webkit-animation: glowmelissa 1s ease-in-out infinite alternate, glowtextmelissa 1s ease-in-out infinite alternate;
+    -moz-animation: glowmelissa 1s ease-in-out infinite alternate, glowtextmelissa 1s ease-in-out infinite alternate;
+    animation: glowmelissa 1s ease-in-out infinite alternate, glowtextmelissa 1s ease-in-out infinite alternate;
+    z-index: 4;
+}
+
+#card1,
+#card2,
+#card3 > * {
+    position: relative;
+    z-index: 2;
+}
+
+#card1::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 19, 145, .4);
+    border-radius: 35px;
+}
+
+#card2::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(163, 0, 0, .4);
+    border-radius: 35px;
+}
+
+#card3::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(7, 148, 2, .4);
+    border-radius: 35px;
+}
+
+/* ======================================== Mereth Animations ====================================== */
+
+@-webkit-keyframes glowmereth {
+    from {
+      box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #005ce6, 0 0 20px #0049e6, 0 0 25px #002ae6, 0 0 30px #0049e6, 0 0 35px #000fe6;
+    }
+    to {
+      box-shadow: 0 0 5px #fff, 0 0 20px #4d50ff, 0 0 20px #4d5fff, 0 0 25px #4d6eff, 0 0 30px #594dff, 0 0 35px #4d77ff, 0 0 40px #4d59ff;
+    }
+  }
+
+@-webkit-keyframes glowtextmeret {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 15px #0004e6, 0 0 20px #0400e6, 0 0 25px #0023e6, 0 0 30px #0023e6, 0 0 35px #002ae6;
+      }
+      to {
+        text-shadow: 0 0 10px #fff, 0 0 15px #4d68ff, 0 0 20px #4d68ff, 0 0 25px #4d7cff, 0 0 30px #4d59ff, 0 0 35px #4d59ff, 0 0 40px #4d68ff;
+      }
+}
+
+/* ======================================== Gniewoslav Animations ====================================== */
+
+@-webkit-keyframes glowgniewoslav {
+    from {
+      box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #9b0101be, 0 0 20px #970000, 0 0 25px #8f0000, 0 0 30px #750202, 0 0 35px #9c0303;
+    }
+    to {
+      box-shadow: 0 0 10px #fff, 0 0 15px #740000, 0 0 20px #6e0303, 0 0 25px #550101, 0 0 30px #6b0202, 0 0 35px #790202, 0 0 40px #790202;
+    }
+  }
+
+@-webkit-keyframes glowtextgnievoslav {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #a70505, 0 0 20px #b80606, 0 0 25px #c50404, 0 0 30px #ce0303, 0 0 35px #8a0202;
+      }
+      to {
+        text-shadow: 0 0 10px #fff, 0 0 15px #c20404, 0 0 20px #d30101, 0 0 25px #810202, 0 0 30px #a00303, 0 0 35px rgb(153, 3, 3), 0 0 40px #910404;
+      }
+}
+
+/* ======================================== Melissa Animations ====================================== */
+
+@-webkit-keyframes glowmelissa {
+    from {
+      box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #00cc1bbe, 0 0 20px #00e90c, 0 0 25px #0cc706, 0 0 30px #1be400, 0 0 35px #159c03;
+    }
+    to {
+      box-shadow: 0 0 10px #fff, 0 0 15px #177400, 0 0 20px #156e03, 0 0 25px #0f5501, 0 0 30px #176b02, 0 0 35px #167902, 0 0 40px #2e7902;
+    }
+  }
+
+@-webkit-keyframes glowtextmelissa {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #46a705, 0 0 20px #56b806, 0 0 25px #3bc504, 0 0 30px #4ece03, 0 0 35px #388a02;
+      }
+      to {
+        text-shadow: 0 0 10px #fff, 0 0 15px #30c204, 0 0 20px #32d301, 0 0 25px #268102, 0 0 30px #35a003, 0 0 35px rgb(51, 153, 3), 0 0 40px #319104;
+      }
+}
+
+  @media screen and (max-width: 800px) {
+    p{
+        font-size: 27px;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    h2{
+        font-size: 20px;
+    }
+
+    p{
+        font-size: 19px;
+    }
+
+    .avatar{
+        width: 150px;
+        padding-top: 100px;
+
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+
+    body{
+        flex-direction: column;
+        height: 100vh;
+        padding: 10px;
+    }
+
+    a{
+        display: flex;
+        align-items: center;
+    }
+
+    .card{
+        width: 100%;
+        height: 33%;
+        margin-top: 10px;
+        padding-top: 25px;
+    }
+
+    #card1{
+        order: 1;
+    }
+
+    #card2{
+        order: 2;
+    }
+
+    #card3{
+        order: 3;
+    }
+
+    a{
+        order: 4;
+    }
+
+    h2{
+        font-size: 30px;
+    }
+
+    p{
+        display: none;
+    }
+
+    .avatar{
+        padding: 0;
+        width: 170px;
+    }
+
+    button{
+        width: 100%;
+        height: 10vh;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+  }
